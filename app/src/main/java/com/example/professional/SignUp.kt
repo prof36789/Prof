@@ -53,7 +53,7 @@ import com.example.professional.ui.theme.textColor
 import com.example.professional.ui.theme.textColor2
 import com.example.professional.ui.theme.textfieldColor
 
-class LogIn : ComponentActivity() {
+class SignUp : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -76,6 +76,8 @@ class LogIn : ComponentActivity() {
         )
         var email by remember { mutableStateOf(TextFieldValue(""))}
         var password by remember { mutableStateOf(TextFieldValue(""))}
+        var fio by remember { mutableStateOf(TextFieldValue(""))}
+        var phone by remember { mutableStateOf(TextFieldValue(""))}
         Column (modifier = Modifier.fillMaxSize().background(Color.White),
             verticalArrangement = Arrangement.SpaceBetween){
             Column() {
@@ -93,6 +95,52 @@ class LogIn : ComponentActivity() {
                         fontSize = 20.sp,
                         fontWeight = FontWeight.Bold)
                 }
+                Spacer(modifier = Modifier.size(20.dp))
+                OutlinedTextField(value = fio, onValueChange = {fio = it},
+                    colors = OutlinedTextFieldDefaults.colors(
+                        unfocusedBorderColor = textfieldColor,
+                        unfocusedContainerColor = textfieldColor,
+                        focusedContainerColor = textfieldColor,
+                        focusedBorderColor = textfieldColor
+
+                    ),
+                    modifier = Modifier.fillMaxWidth().padding(horizontal = 30.dp),
+                    shape = RoundedCornerShape(50),
+                    leadingIcon = {
+                        Icon(painter = painterResource(R.drawable.img_11), contentDescription = "",
+                            modifier = Modifier.size(18.dp),
+                            tint = iconColor)
+                    },
+                    placeholder = {
+                        Text("ФИО",
+                            color = textColor,
+                            fontSize = 12.sp)
+                    }
+                )
+                Spacer(modifier = Modifier.size(20.dp))
+                OutlinedTextField(value = phone, onValueChange = {phone = it},
+                    colors = OutlinedTextFieldDefaults.colors(
+                        unfocusedBorderColor = textfieldColor,
+                        unfocusedContainerColor = textfieldColor,
+                        focusedContainerColor = textfieldColor,
+                        focusedBorderColor = textfieldColor
+
+                    ),
+                    modifier = Modifier.fillMaxWidth().padding(horizontal = 30.dp),
+                    shape = RoundedCornerShape(50),
+                    leadingIcon = {
+                        Icon(painter = painterResource(R.drawable.img_13), contentDescription = "",
+                            modifier = Modifier.size(18.dp),
+                            tint = iconColor)
+                    },
+                    placeholder = {
+                        Text("Номер телефона",
+                            color = textColor,
+                            fontSize = 12.sp)
+                    },
+
+
+                )
                 Spacer(modifier = Modifier.size(20.dp))
                 OutlinedTextField(value = email, onValueChange = {email = it},
                     colors = OutlinedTextFieldDefaults.colors(
@@ -113,7 +161,8 @@ class LogIn : ComponentActivity() {
                         Text("Почта",
                             color = textColor,
                             fontSize = 12.sp)
-                    }
+                    },
+
                 )
                 Spacer(modifier = Modifier.size(20.dp))
                 OutlinedTextField(value = password, onValueChange = {password = it},
@@ -164,12 +213,7 @@ class LogIn : ComponentActivity() {
                         horizontalAlignment = Alignment.CenterHorizontally,
                         verticalArrangement = Arrangement.Center){
                         Row (){
-                            Icon(painter = painterResource(R.drawable.img_9),
-                                contentDescription = "",
-                                modifier = Modifier.size(24.dp),
-                                tint = Color.White)
-                            Spacer(modifier = Modifier.size(10.dp))
-                            Text("Войти",
+                            Text("Зарегистрироваться",
                                 color = Color.White,
                                 fontSize = 16.sp,
                                 fontWeight = FontWeight.Bold)
@@ -192,13 +236,13 @@ class LogIn : ComponentActivity() {
                 Spacer(modifier = Modifier.size(20.dp))
                 Row (modifier = Modifier.fillMaxWidth().padding(horizontal = 30.dp),
                     horizontalArrangement = Arrangement.Center){
-                    Text("Нет аккаунта?",
+                    Text("Имеете уже аккаунт?",
                         color = Color.Black,
                         fontSize = 14.sp)
-                    Text("Зарегистрироваться",
+                    Text("Войти",
                         color = textColor2,
                         fontSize = 14.sp,
-                        modifier = Modifier.clickable { startActivity(Intent(this@LogIn, SignUp::class.java))})
+                        modifier = Modifier.clickable { startActivity(Intent(this@SignUp, LogIn::class.java))})
 
 
                 }
