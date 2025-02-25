@@ -51,7 +51,7 @@ import kotlinx.coroutines.launch
 // класс предназаначен для скролинга фрагментов на начальносм экране, для реализации перелистывания экранов я использовал конструкцию HorisontalPager,
 // создал переменную pagerState, которой присвоил состояние: rememberPagerState,
 //переменная coroutineScope обеспечивает Скролл экранов при нажатии на кнопку
-// Автор: Лицуков Максим Геннадьевич
+// Автор Лицуков Максим Геннадьевич
 //25.02.2025
 class Onboarding : ComponentActivity() {
     @OptIn(ExperimentalFoundationApi::class)

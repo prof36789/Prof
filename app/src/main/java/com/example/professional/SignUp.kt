@@ -217,7 +217,7 @@ class SignUp : ComponentActivity() {
                 Box(
                     modifier = Modifier.fillMaxWidth().padding(horizontal = 30.dp).clip(
                         RoundedCornerShape(50)
-                    ).height(60.dp).background(brush = gradient)
+                    ).height(60.dp).background(brush = gradient).clickable { startActivity(Intent(this@SignUp, RegisterPage::class.java)) }
                 ){
                     Column (modifier = Modifier.fillMaxSize(),
                         horizontalAlignment = Alignment.CenterHorizontally,
