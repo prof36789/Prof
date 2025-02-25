@@ -14,4 +14,7 @@ val Max2 = Color(0xFFB6B4C2)
 val Max3 = Color(0xFFCFCFCF)
 val butStart = Color(0xFF9CE9EE)
 val butEnd = Color(0xFF226F8F)
-
+val Max4 = Color(0xFF1D1617)
+val textfieldColor = Color(0xFFF7F8F8)
+val iconColor = Color(0xFF7B6F72)
+val textColor = Color(0xFFADA4A5)
