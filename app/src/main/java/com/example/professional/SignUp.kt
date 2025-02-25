@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -22,6 +23,8 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
+import androidx.compose.material3.Checkbox
+import androidx.compose.material3.CheckboxDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
@@ -75,6 +78,7 @@ class SignUp : ComponentActivity() {
             )
         )
         var email by remember { mutableStateOf(TextFieldValue(""))}
+        var checked by remember { mutableStateOf(false) }
         var password by remember { mutableStateOf(TextFieldValue(""))}
         var fio by remember { mutableStateOf(TextFieldValue(""))}
         var phone by remember { mutableStateOf(TextFieldValue(""))}
@@ -90,7 +94,7 @@ class SignUp : ComponentActivity() {
                 Spacer(modifier = Modifier.size(10.dp))
                 Row (modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.Center){
-                    Text("Добро пожаловать",
+                    Text("Создай аккаунт",
                         color = Color.Black,
                         fontSize = 20.sp,
                         fontWeight = FontWeight.Bold)
@@ -194,12 +198,17 @@ class SignUp : ComponentActivity() {
 
                 )
                 Spacer(modifier = Modifier.size(20.dp))
-                Row (modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.Center){
-                    Text("Забыл пароль?",
-                        color = textColor,
-                        fontSize = 12.sp,
-                        textDecoration = TextDecoration.Underline)
+                Row (modifier = Modifier.fillMaxWidth().padding(horizontal = 30.dp),
+                    horizontalArrangement = Arrangement.Start){
+
+                        Checkbox(checked = checked, onCheckedChange = {checked = it},
+                            colors = CheckboxDefaults.colors(
+                                checkedColor = butEnd,
+                                disabledIndeterminateColor = Color.Red
+                            ))
+                    Text("Продолжая, вы принимаете нашу Политику конфиденциальности и Условия использования.",
+                        color = textColor)
+
                 }
 
             }
