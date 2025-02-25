@@ -67,7 +67,8 @@ class Onboarding : ComponentActivity() {
                         }
                     },
                         shape = CircleShape,
-                        colors = CardDefaults.cardColors(Max1)){
+                        colors = CardDefaults.cardColors(
+                        )){
                         Column (modifier = Modifier.fillMaxSize(),
                             horizontalAlignment = Alignment.CenterHorizontally,
                             verticalArrangement = Arrangement.Center){
