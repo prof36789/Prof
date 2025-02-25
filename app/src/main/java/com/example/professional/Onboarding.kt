@@ -7,8 +7,10 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -30,6 +32,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -41,6 +45,8 @@ import androidx.compose.ui.unit.sp
 import com.example.professional.ui.theme.Max1
 import com.example.professional.ui.theme.Max2
 import com.example.professional.ui.theme.ProfessionalTheme
+import com.example.professional.ui.theme.butEnd
+import com.example.professional.ui.theme.butStart
 import kotlinx.coroutines.launch
 
 class Onboarding : ComponentActivity() {
@@ -49,6 +55,12 @@ class Onboarding : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
+            val gradient = Brush.linearGradient(
+                colors = listOf(
+                    butStart,
+                    butEnd
+                )
+            )
             val pagerState = rememberPagerState { 4 }
             val coroutineScope = rememberCoroutineScope()
             Pager1(pagerState)
@@ -67,13 +79,17 @@ class Onboarding : ComponentActivity() {
                         }
                     },
                         shape = CircleShape,
-                        colors = CardDefaults.cardColors(
-                        )){
-                        Column (modifier = Modifier.fillMaxSize(),
-                            horizontalAlignment = Alignment.CenterHorizontally,
-                            verticalArrangement = Arrangement.Center){
-                            Icon(painter = painterResource(R.drawable.img_1), contentDescription = "",
-                                modifier = Modifier.size(18.dp))
+                        ){
+                        Box (modifier = Modifier.fillMaxSize().clip(shape = CircleShape).background(brush = gradient)){
+                            Column (modifier = Modifier.fillMaxSize(),
+                                horizontalAlignment = Alignment.CenterHorizontally,
+                                verticalArrangement = Arrangement.Center){
+                                Icon(painter = painterResource(R.drawable.img_1), contentDescription = "",
+                                    tint = Color.White,
+                                    modifier = Modifier.size(18.dp))
+                            }
+                        }
+
 
                         }
                     }
@@ -247,5 +263,4 @@ class Onboarding : ComponentActivity() {
 
         }
     }
-}
 

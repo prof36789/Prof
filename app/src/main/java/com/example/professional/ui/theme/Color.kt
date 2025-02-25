@@ -11,3 +11,7 @@ val PurpleGrey40 = Color(0xFF625b71)
 val Pink40 = Color(0xFF7D5260)
 val Max1 = Color(0xFF027353)
 val Max2 = Color(0xFFB6B4C2)
+val Max3 = Color(0xFFCFCFCF)
+val butStart = Color(0xFF9CE9EE)
+val butEnd = Color(0xFF226F8F)
+

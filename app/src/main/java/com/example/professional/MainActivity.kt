@@ -13,8 +13,11 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -28,6 +31,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.professional.ui.theme.Max1
+import com.example.professional.ui.theme.Max3
 import com.example.professional.ui.theme.ProfessionalTheme
 
 class MainActivity : ComponentActivity() {
@@ -46,8 +50,10 @@ class MainActivity : ComponentActivity() {
     fun Splash() {
         Column (modifier = Modifier.fillMaxSize().background(Color.White),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center){
+            verticalArrangement = Arrangement.Top){
+            Spacer(modifier = Modifier.size(100.dp))
             Image(painter = painterResource(R.drawable.img), contentDescription = "",
+                modifier = Modifier.height(323.dp).width(314.dp)
                 )
             Spacer(modifier = Modifier.size(10.dp))
             Row (){
@@ -59,6 +65,13 @@ class MainActivity : ComponentActivity() {
                     color = Color.Black,
                     fontSize = 36.sp,
                     fontWeight = FontWeight.Bold)
+            }
+            Spacer(modifier = Modifier.size(10.dp))
+            Row (modifier = Modifier.fillMaxWidth().padding(horizontal = 30.dp),
+                horizontalArrangement = Arrangement.Center){
+                Text("Каждый может тренироваться",
+                    color = Max3,
+                    fontSize = 18.sp)
             }
 
         }
