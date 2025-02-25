@@ -6,12 +6,15 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.pager.HorizontalPager
@@ -27,10 +30,16 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.professional.ui.theme.Max1
+import com.example.professional.ui.theme.Max2
 import com.example.professional.ui.theme.ProfessionalTheme
 import kotlinx.coroutines.launch
 
@@ -45,7 +54,7 @@ class Onboarding : ComponentActivity() {
             Pager1(pagerState)
             Column (modifier = Modifier.fillMaxSize(),
                 verticalArrangement = Arrangement.Bottom){
-                Row (modifier = Modifier.fillMaxWidth().padding(horizontal = 20.dp),
+                Row (modifier = Modifier.fillMaxWidth().padding(horizontal = 30.dp).padding(bottom = 40.dp),
                     horizontalArrangement = Arrangement.End){
                     Card (modifier = Modifier.size(60.dp).clickable {
                         coroutineScope.launch {
@@ -89,42 +98,153 @@ class Onboarding : ComponentActivity() {
         }
 
     }
-
+    @Preview(showBackground = true)
     @Composable
     fun Screen1(modifier: Modifier = Modifier) {
-        Column (modifier = Modifier.fillMaxSize(),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center){
-            Text("Hello1")
+        Column (modifier = Modifier.fillMaxSize(), verticalArrangement = Arrangement.Top){
+            Image(painter = painterResource(R.drawable.img_2), contentDescription = "",
+                contentScale = ContentScale.Crop,
+                modifier = Modifier.fillMaxWidth())
+            Spacer(modifier = Modifier.size(30.dp))
+            Row (modifier = Modifier.fillMaxWidth().padding(horizontal = 30.dp),
+                horizontalArrangement = Arrangement.Start){
+                Text("Отслеживайте свою цель",
+                    color = Color.Black,
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 20.sp)
+            }
+            Spacer(modifier = Modifier.size(20.dp))
+            Column (){
+                Row (modifier = Modifier.fillMaxWidth().padding(horizontal = 30.dp),
+                    horizontalArrangement = Arrangement.Start){
+                    Text("Не волнуйтесь, если у вас возникли проблемы с определением ваших целей." +
+                            " Мы можем помочь вам определить ваши цели и отслеживать их.",
+                        color = Max2,
+                        fontSize = 14.sp,
+                        textAlign = TextAlign.Start)
+                }
+            }
+
+
+
         }
 
     }
+    @Preview(showBackground = true)
     @Composable
     fun Screen2(modifier: Modifier = Modifier) {
-        Column (modifier = Modifier.fillMaxSize(),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center){
-            Text("Hello2")
-        }
+        Column (modifier = Modifier.fillMaxSize(), verticalArrangement = Arrangement.Top){
+            Image(painter = painterResource(R.drawable.img_3), contentDescription = "",
+                contentScale = ContentScale.Crop,
+                modifier = Modifier.fillMaxWidth())
+            Spacer(modifier = Modifier.size(50.dp))
+            Row (modifier = Modifier.fillMaxWidth().padding(horizontal = 30.dp),
+                horizontalArrangement = Arrangement.Start){
+                Text("Сжигай лишнее",
+                    color = Color.Black,
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 20.sp)
+            }
+            Spacer(modifier = Modifier.size(20.dp))
+            Column (){
+                Row (modifier = Modifier.fillMaxWidth().padding(horizontal = 30.dp),
+                    horizontalArrangement = Arrangement.Start){
+                    Text("Давайте продолжать заниматься, чтобы достичь своих целей, это больно только временно," +
+                            " если ты сдашься сейчас, тебе будет больно навсегда.",
+                        color = Max2,
+                        fontSize = 14.sp,
+                        textAlign = TextAlign.Start)
+                }
+            }
 
+
+
+        }
     }
+    @Preview(showBackground = true)
     @Composable
     fun Screen3(modifier: Modifier = Modifier) {
-        Column (modifier = Modifier.fillMaxSize(),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center){
-            Text("Hello3")
+        Column (modifier = Modifier.fillMaxSize(), verticalArrangement = Arrangement.Top){
+            Image(painter = painterResource(R.drawable.img_4), contentDescription = "",
+                contentScale = ContentScale.Crop,
+                modifier = Modifier.fillMaxWidth())
+            Spacer(modifier = Modifier.size(30.dp))
+            Row (modifier = Modifier.fillMaxWidth().padding(horizontal = 30.dp),
+                horizontalArrangement = Arrangement.Start){
+                Text("Питайся правильно",
+                    color = Color.Black,
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 20.sp)
+            }
+            Spacer(modifier = Modifier.size(20.dp))
+            Column (){
+                Row (modifier = Modifier.fillMaxWidth().padding(horizontal = 30.dp),
+                    horizontalArrangement = Arrangement.Start){
+                    Text("Давайте начнем здоровый образ жизни вместе с нами, " +
+                            "мы сможем определять ваш рацион каждый день. Здоровое питание - это весело",
+                        color = Max2,
+                        fontSize = 14.sp,
+                        textAlign = TextAlign.Start)
+                }
+            }
+
+
+
         }
 
     }
+    @Preview(showBackground = true)
     @Composable
     fun Screen4(modifier: Modifier = Modifier) {
-        Column (modifier = Modifier.fillMaxSize(),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center){
-            Text("Hello3")
-        }
+        Column(modifier = Modifier.fillMaxSize(), verticalArrangement = Arrangement.Top) {
+            Image(
+                painter = painterResource(R.drawable.img_5), contentDescription = "",
+                contentScale = ContentScale.Crop,
+                modifier = Modifier.fillMaxWidth()
+            )
+            Spacer(modifier = Modifier.size(50.dp))
+            Column() {
+                Row(
+                    modifier = Modifier.fillMaxWidth().padding(horizontal = 30.dp),
+                    horizontalArrangement = Arrangement.Start
+                ) {
+                    Text(
+                        "Улучшите",
+                        color = Color.Black,
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 20.sp
+                    )
+                }
+                Row(
+                    modifier = Modifier.fillMaxWidth().padding(horizontal = 30.dp),
+                    horizontalArrangement = Arrangement.Start
+                ) {
+                    Text(
+                        "качество сна",
+                        color = Color.Black,
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 20.sp
+                    )
+                }
+            }
 
+            Spacer(modifier = Modifier.size(20.dp))
+            Column() {
+                Row(
+                    modifier = Modifier.fillMaxWidth().padding(horizontal = 30.dp),
+                    horizontalArrangement = Arrangement.Start
+                ) {
+                    Text(
+                        "Улучшайте качество своего сна вместе с нами, качественный сон может принести хорошее настроение с утра.",
+                        color = Max2,
+                        fontSize = 14.sp,
+                        textAlign = TextAlign.Start
+                    )
+                }
+            }
+
+
+        }
     }
 }
 
