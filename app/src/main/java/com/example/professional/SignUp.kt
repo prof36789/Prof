@@ -212,6 +212,7 @@ class SignUp : ComponentActivity() {
                 }
 
             }
+
             Column(modifier = Modifier.padding(bottom = 50.dp)) {
                 Box(
                     modifier = Modifier.fillMaxWidth().padding(horizontal = 30.dp).clip(
