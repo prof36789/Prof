@@ -156,7 +156,8 @@ class LogIn : ComponentActivity() {
             }
             Column(modifier = Modifier.padding(bottom = 50.dp)) {
                 Box(
-                    modifier = Modifier.fillMaxWidth().padding(horizontal = 30.dp).clip(
+                    modifier = Modifier.fillMaxWidth()
+                        .clickable { startActivity(Intent(this@LogIn, Home::class.java)) }.padding(horizontal = 30.dp).clip(
                         RoundedCornerShape(50)
                     ).height(60.dp).background(brush = gradient)
                 ){
