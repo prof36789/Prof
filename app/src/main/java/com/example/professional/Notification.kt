@@ -37,7 +37,10 @@ import androidx.compose.ui.unit.sp
 import com.example.professional.ui.theme.ProfessionalTheme
 import com.example.professional.ui.theme.textColor
 import com.example.professional.ui.theme.textfieldColor
-
+//данный класс предназначен для реализации интерфейса Окна с уведомлениями,
+// чтобы реализовать интерфейс мне потребовалось использоывание различных элементов, таких как Column, Box, Text, Card
+//Лицуков Максим Геннадьевич
+// 26.02.2025
 class Notification : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

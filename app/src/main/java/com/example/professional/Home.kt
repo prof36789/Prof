@@ -49,7 +49,12 @@ import com.example.professional.ui.theme.grad2
 import com.example.professional.ui.theme.textColor
 import com.example.professional.ui.theme.textColor2
 import kotlinx.coroutines.launch
-
+//данный класс предназанчен для реализации навигации по окнам,
+//чтобы реализовать навигацию по окнам я использовал конструкцию Horizontal Pager,
+// что бы ее применить мне пришлось создать переменную pagerState и присвоить количество экранов в качесстве состояния,
+// так же мне понадобилось создать перменную coroutineScope для реализации перехода по окнам с помощью Иконок
+// Лицуков Максим Геннадьевич
+//26.02.2025
 class Home : ComponentActivity() {
     @OptIn(ExperimentalFoundationApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
