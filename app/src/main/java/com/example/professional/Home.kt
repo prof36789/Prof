@@ -1,5 +1,6 @@
 package com.example.professional
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -23,6 +24,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.PagerState
 import androidx.compose.foundation.pager.rememberPagerState
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
@@ -54,11 +56,32 @@ class Home : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
+            val gradd = Brush.linearGradient(
+                colors = listOf(
+                    butStart,
+                    butEnd
+                )
+            )
             val pagerState = rememberPagerState { 4 }
             val coroutineScope = rememberCoroutineScope()
             Pager1(pagerState)
             Column (modifier = Modifier.fillMaxSize(),
                 verticalArrangement = Arrangement.Bottom){
+                Row (modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.Center){
+                    Box(modifier = Modifier.size(60.dp).clip(shape = CircleShape).background(brush = gradd)){
+                        Column (modifier = Modifier.fillMaxSize(),
+                            verticalArrangement = Arrangement.Center,
+                            horizontalAlignment = Alignment.CenterHorizontally){
+                            Icon(painter = painterResource(R.drawable.img_30), contentDescription = "",
+                                modifier = Modifier.size(20.dp),
+                                tint = Color.White)
+
+                        }
+                    }
+                }
+
+
                 Box(modifier = Modifier
                     .fillMaxWidth()
                     .height(80.dp)
@@ -177,7 +200,9 @@ class Home : ComponentActivity() {
                     fontSize = 20.sp,
                 )
                 Image(painter = painterResource(R.drawable.img_25), contentDescription = "", 
-                    modifier = Modifier.height(21.dp).width(18.dp))
+                    modifier = Modifier.height(21.dp).width(18.dp).clickable {
+                        startActivity(Intent(this@Home, Notification::class.java))
+                    })
 
             }
             Spacer(modifier = Modifier.size(30.dp))
@@ -246,6 +271,36 @@ class Home : ComponentActivity() {
                         }
 
 
+                    }
+                }
+            }
+            Spacer(modifier = Modifier.size(30.dp))
+            Row (modifier = Modifier.fillMaxWidth().padding(horizontal = 30.dp)){
+                Text("Статус активности",
+                    color = Color.Black,
+                    fontSize = 16.sp,
+                    fontWeight = FontWeight.Bold)
+            }
+            Spacer(modifier = Modifier.size(20.dp))
+            Row (modifier = Modifier.fillMaxWidth().padding(horizontal = 30.dp)){
+                Box (modifier = Modifier.fillMaxWidth().height(176.dp).clip(RoundedCornerShape(15)).background(gradient2)){
+                    Column (modifier = Modifier.fillMaxSize(), verticalArrangement = Arrangement.SpaceBetween){
+                        Row (modifier = Modifier.fillMaxWidth().padding(horizontal = 20.dp).padding(top = 20.dp)){
+                            Text("Частота сердечных сокращений",
+                                fontSize = 12.sp, 
+                                color = Color.Black)
+                        }
+                        Row (modifier = Modifier.fillMaxWidth().padding(horizontal = 20.dp),
+                            horizontalArrangement = Arrangement.Center){
+                            Image(painter = painterResource(R.drawable.img_29), contentDescription = "",
+                                modifier = Modifier.fillMaxWidth().height(81.dp))
+                        }
+                        Row (modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.Center){
+                            Text("78 BPM",
+                                color = butEnd,
+                                modifier = Modifier.padding(bottom = 10.dp))
+                        }
                     }
                 }
             }
