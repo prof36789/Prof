@@ -315,12 +315,16 @@ class Home : ComponentActivity() {
         }
 
     }
+    @Preview(showBackground = true)
     @Composable
     fun Page2(modifier: Modifier = Modifier) {
         Column (modifier = Modifier.fillMaxSize(),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally){
-            Text("Hello2")
+            Text("Больше",
+                fontSize = 50.sp,
+                color = Color.Black,
+                modifier = Modifier.clickable { startActivity(Intent(this@Home, WorkoutDeteails1::class.java)) })
         }
 
     }
