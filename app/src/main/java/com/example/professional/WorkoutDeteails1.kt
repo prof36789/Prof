@@ -41,6 +41,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.content.ContextCompat.startActivity
 import com.example.professional.ui.theme.ProfessionalTheme
 import com.example.professional.ui.theme.butEnd
 import com.example.professional.ui.theme.butStart
@@ -323,7 +324,9 @@ class WorkoutDeteails1 : ComponentActivity() {
 
                         }
                         Spacer(modifier = Modifier.size(15.dp))
-                        Box (modifier = Modifier.height(60.dp).fillMaxWidth().padding(horizontal = 25.dp)){
+                        Box (modifier = Modifier.height(60.dp).fillMaxWidth().padding(horizontal = 25.dp).clickable {
+                            startActivity(Intent(this@WorkoutDeteails1, WorkoutDetails2::class.java))
+                        }){
                             Row(modifier = Modifier.fillMaxWidth().padding(),
                                 horizontalArrangement = Arrangement.SpaceBetween) {
                                 Row (){
@@ -613,6 +616,40 @@ fun Hello(modifier: Modifier = Modifier) {
     )
     Column (modifier = Modifier.fillMaxSize().background(brush = gradient),
         verticalArrangement = Arrangement.Top){
+        Row (modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 30.dp).padding(top = 40.dp),
+            horizontalArrangement = Arrangement.SpaceBetween){
+            Card (modifier = Modifier
+                .size(32.dp)
+                .clickable {},
+                colors = CardDefaults.cardColors(textfieldColor)){
+                Column (modifier = Modifier.fillMaxSize(),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.Center){
+                    Icon(painter = painterResource(R.drawable.img_31),
+                        contentDescription = "",
+                        tint = Color.Black,
+                        modifier = Modifier.size(16.dp)
+                    )
+                }
+            }
+
+            Card (modifier = Modifier.size(32.dp),
+                colors = CardDefaults.cardColors(textfieldColor)){
+                Column (modifier = Modifier.fillMaxSize(),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.Center){
+                    Icon(painter = painterResource(R.drawable.img_32),
+                        contentDescription = "",
+                        tint = Color.Black,
+                        modifier = Modifier
+                            .height(4.dp)
+                            .width(10.dp)
+                    )
+                }
+            }
+        }
         Row (modifier = Modifier.fillMaxWidth().padding(top = 50.dp),
             horizontalArrangement = Arrangement.Center){
             Image(painter = painterResource(R.drawable.img_42), contentDescription = "",
