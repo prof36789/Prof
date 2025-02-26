@@ -321,7 +321,7 @@ class Home : ComponentActivity() {
         Column (modifier = Modifier.fillMaxSize(),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally){
-            Text("Больше",
+            Text("Warkout Details - нажми на текст ",
                 fontSize = 50.sp,
                 color = Color.Black,
                 modifier = Modifier.clickable { startActivity(Intent(this@Home, WorkoutDeteails1::class.java)) })
