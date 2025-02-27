@@ -145,7 +145,7 @@ class SleepTracker : ComponentActivity() {
                 horizontalArrangement = Arrangement.Center){
                 Box (modifier = Modifier.fillMaxWidth().padding(horizontal = 30.dp).height(148.dp).clip(
                     RoundedCornerShape(20)
-                ).background(brush = gradient)){
+                ).background(brush = gradient).clickable { startActivity(Intent(this@SleepTracker, SleepSchedule::class.java)) }){
                     Column (modifier = Modifier.fillMaxSize()){
                         Spacer(modifier = Modifier.size(30.dp))
                         Row (modifier = Modifier.fillMaxWidth().padding(horizontal = 20.dp),
@@ -173,7 +173,7 @@ class SleepTracker : ComponentActivity() {
             }
             Spacer(modifier = Modifier.size(20.dp))
             Box(modifier = Modifier.fillMaxWidth().height(57.dp).padding(horizontal = 30.dp).clip(RoundedCornerShape(50)).background(
-                grad2)){
+                grad2).clickable { }){
                 Column (modifier = Modifier.fillMaxSize(),
                     verticalArrangement = Arrangement.Center){
                     Row (modifier = Modifier.fillMaxWidth().padding(horizontal = 20.dp),
