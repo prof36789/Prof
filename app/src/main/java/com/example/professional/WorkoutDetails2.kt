@@ -30,6 +30,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.professional.ui.theme.ProfessionalTheme
+import com.example.professional.ui.theme.textColor
 import com.example.professional.ui.theme.textfieldColor
 
 class WorkoutDetails2 : ComponentActivity() {
@@ -92,6 +93,12 @@ class WorkoutDetails2 : ComponentActivity() {
                 Text("Прыжки на скакалке",
                     fontSize = 16.sp,
                     color = Color.Black)
+            }
+            Spacer(modifier = Modifier.size(10.dp))
+            Row (modifier = Modifier.fillMaxWidth().padding(horizontal = 30.dp)){
+                Text("Просто | 390 калорий",
+                    fontSize = 12.sp,
+                    color = textColor)
             }
         }
 

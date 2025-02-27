@@ -15,6 +15,11 @@
         android:theme="@style/Theme.Professional"
         tools:targetApi="31">
         <activity
+            android:name=".SleepTracker"
+            android:exported="false"
+            android:label="@string/title_activity_sleep_tracker"
+            android:theme="@style/Theme.Professional" />
+        <activity
             android:name=".WorkoutDetails2"
             android:exported="false"
             android:label="@string/title_activity_workout_details2"

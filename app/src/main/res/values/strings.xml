@@ -9,4 +9,5 @@
     <string name="title_activity_notification">Notification</string>
     <string name="title_activity_workout_deteails1">WorkoutDeteails1</string>
     <string name="title_activity_workout_details2">WorkoutDetails2</string>
+    <string name="title_activity_sleep_tracker">SleepTracker</string>
 </resources>
