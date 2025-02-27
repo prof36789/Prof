@@ -26,6 +26,7 @@ import androidx.compose.foundation.pager.PagerState
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -307,6 +308,15 @@ class Home : ComponentActivity() {
                                 modifier = Modifier.padding(bottom = 10.dp))
                         }
                     }
+                }
+            }
+            Spacer(modifier = Modifier.size(20.dp))
+            Row (modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.Center){
+                Button(onClick = {
+                    startActivity(Intent(this@Home, SleepTracker::class.java))
+                }) {
+                    Text("SleepTracker")
                 }
             }
 
