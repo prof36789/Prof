@@ -20,7 +20,9 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
@@ -112,7 +114,7 @@ class SleepTracker : ComponentActivity() {
                 butStart
             )
         )
-        Column (modifier = Modifier.fillMaxSize().background(color = Color.White),
+        Column (modifier = Modifier.fillMaxSize().verticalScroll(rememberScrollState()).background(color = Color.White),
             verticalArrangement = Arrangement.Top){
 
             Row (modifier = Modifier.fillMaxWidth().padding(top = 120.dp),
@@ -218,19 +220,22 @@ class SleepTracker : ComponentActivity() {
                 ){
                     Column (modifier = Modifier.fillMaxSize(),
                         verticalArrangement = Arrangement.Center){
-                        Row (modifier = Modifier.fillMaxWidth().padding(horizontal = 10.dp)){
+                        Row (modifier = Modifier.fillMaxWidth().padding(horizontal = 20.dp),
+                            horizontalArrangement = Arrangement.SpaceBetween){
                             Column (modifier = Modifier.fillMaxHeight(),
                                 verticalArrangement = Arrangement.Center){
                                 Image(painter = painterResource(R.drawable.img_64),
                                     contentDescription = "",
                                     modifier = Modifier.size(30.dp))
                             }
-                            Column (modifier = Modifier.fillMaxHeight().padding(vertical = 20.dp)){
+                            Column (modifier = Modifier.fillMaxHeight().padding(vertical = 10.dp),
+                                verticalArrangement = Arrangement.Center){
                                 Row (){
                                     Text("Сон,",
                                         color = Color.Black,
                                         fontSize = 14.sp,
                                         )
+                                    Spacer(modifier = Modifier.size(1.dp))
                                     Text("21:00",
                                         color = textColor,
                                         fontSize = 12.sp,
@@ -238,6 +243,97 @@ class SleepTracker : ComponentActivity() {
                                     )
 
                                 }
+                                Spacer(modifier = Modifier.size(10.dp))
+                                Text("через 6 часов 22 минуты",
+                                    color = textColor,
+                                    fontSize = 12.sp,
+                                    fontFamily = NormalFamily
+                                )
+
+                            }
+                            Column (modifier = Modifier.fillMaxHeight().padding(vertical = 20.dp),
+                                verticalArrangement = Arrangement.SpaceBetween,
+                                horizontalAlignment = Alignment.End
+                            ){
+                                Row(
+                                    horizontalArrangement = Arrangement.End) {
+                                    Image(painter = painterResource(R.drawable.img_34), contentDescription = "",
+                                        modifier = Modifier.size(14.dp))
+                                }
+                                Row (
+                                    horizontalArrangement = Arrangement.End){
+                                    Image(painter = painterResource(R.drawable.img_65), contentDescription = "",
+                                        modifier = Modifier.height(24.dp).width(44.dp))
+                                }
+
+
+
+                            }
+                        }
+                    }
+
+
+                }
+            }
+            Spacer(modifier = Modifier.size(20.dp))
+            Row (modifier = Modifier.fillMaxWidth().padding(horizontal = 30.dp),
+                horizontalArrangement = Arrangement.Center){
+
+                Card (modifier = Modifier.fillMaxWidth().height(93.dp),
+                    colors = CardDefaults.cardColors(Color.White),
+                    elevation = CardDefaults.cardElevation(2.dp),
+                    shape = RoundedCornerShape(20.dp)
+                ){
+                    Column (modifier = Modifier.fillMaxSize(),
+                        verticalArrangement = Arrangement.Center){
+                        Row (modifier = Modifier.fillMaxWidth().padding(horizontal = 20.dp),
+                            horizontalArrangement = Arrangement.SpaceBetween){
+                            Column (modifier = Modifier.fillMaxHeight(),
+                                verticalArrangement = Arrangement.Center){
+                                Image(painter = painterResource(R.drawable.img_66),
+                                    contentDescription = "",
+                                    modifier = Modifier.size(30.dp))
+                            }
+                            Column (modifier = Modifier.fillMaxHeight().padding(vertical = 10.dp),
+                                verticalArrangement = Arrangement.Center){
+                                Row (){
+                                    Text("Будильник,",
+                                        color = Color.Black,
+                                        fontSize = 14.sp,
+                                    )
+                                    Spacer(modifier = Modifier.size(1.dp))
+                                    Text("05:10",
+                                        color = textColor,
+                                        fontSize = 12.sp,
+                                        fontFamily = NormalFamily
+                                    )
+
+                                }
+                                Spacer(modifier = Modifier.size(10.dp))
+                                Text("через 10 часов 40 минуты",
+                                    color = textColor,
+                                    fontSize = 12.sp,
+                                    fontFamily = NormalFamily
+                                )
+
+                            }
+                            Column (modifier = Modifier.fillMaxHeight().padding(vertical = 20.dp),
+                                verticalArrangement = Arrangement.SpaceBetween,
+                                horizontalAlignment = Alignment.End
+                            ){
+                                Row(
+                                    horizontalArrangement = Arrangement.End) {
+                                    Image(painter = painterResource(R.drawable.img_34), contentDescription = "",
+                                        modifier = Modifier.size(14.dp))
+                                }
+                                Row (
+                                    horizontalArrangement = Arrangement.End){
+                                    Image(painter = painterResource(R.drawable.img_65), contentDescription = "",
+                                        modifier = Modifier.height(24.dp).width(44.dp))
+                                }
+
+
+
                             }
                         }
                     }
